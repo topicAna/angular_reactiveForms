@@ -1,0 +1,46 @@
+<div id = "container">
+
+    <label>
+      Username:
+        <input type="text" [formControl]="username">
+      </label>
+
+    <label>
+        e-mail:
+        <input type="text" [formControl]="email">
+    </label>
+
+    <label>
+        Password:
+        <input type="text" [formControl]="password">
+    </label>  
+
+    <label>
+        Street Address:
+        <input type="text" [formControl]="streetAddress">
+    </label>   
+
+    <label>
+        Post Code:
+        <input type="text" [formControl]="postCode">
+    </label>  
+
+    <label>
+        City:
+        <input type="text" [formControl]="city">
+    </label> 
+
+ <button (click)="submitForm()">Inscription</button>
+
+    
+    New user details are: <br>
+
+    {{ user.username }} <br>
+    {{ user.email }} <br>
+    {{ user.password }} <br>
+    {{ user.streetAddress }} <br>
+    {{ user.postCode }} <br>
+    {{ user.city }} <br>
+
+</div>
+  
