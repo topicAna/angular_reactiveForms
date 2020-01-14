@@ -1,46 +1,41 @@
-<div id = "container">
+<form id = "container" [formGroup] = "userForm" (ngSubmit)="submitForm()">
 
     <label>
       Username:
-        <input type="text" [formControl]="username">
-      </label>
-
-    <label>
-        e-mail:
-        <input type="text" [formControl]="email">
+        <input type="text" formControlName="username">        
     </label>
 
     <label>
+        e-mail:
+        <input type="text" formControlName="email">     
+    </label>
+    <div *ngIf = "userForm.get('email').errors && !userForm.get('email').pristine">
+    <div [hidden]="!userForm.get('email').invalid">Email is invalid.</div>
+    </div>    
+    
+    <label>
         Password:
-        <input type="text" [formControl]="password">
+        <input type="text" formControlName="password" >
     </label>  
 
     <label>
         Street Address:
-        <input type="text" [formControl]="streetAddress">
+        <input type="text" formControlName="streetAddress">
     </label>   
 
     <label>
         Post Code:
-        <input type="text" [formControl]="postCode">
+        <input type="text" formControlName="postCode">
     </label>  
 
     <label>
         City:
-        <input type="text" [formControl]="city">
+        <input type="text" formControlName="city">
     </label> 
 
- <button (click)="submitForm()">Inscription</button>
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
 
-    
-    New user details are: <br>
 
-    {{ user.username }} <br>
-    {{ user.email }} <br>
-    {{ user.password }} <br>
-    {{ user.streetAddress }} <br>
-    {{ user.postCode }} <br>
-    {{ user.city }} <br>
 
-</div>
+</form>
   
